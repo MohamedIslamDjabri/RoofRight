@@ -1,0 +1,404 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #002520;
+  --color-primary-container: #173b35;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #80a59d;
+  --color-primary-fixed: #c4eae1;
+  --color-primary-fixed-dim: #a8cec6;
+  --color-on-primary-fixed: #00201b;
+  --color-on-primary-fixed-variant: #2a4d46;
+  --color-inverse-primary: #a8cec6;
+
+  --color-secondary: #536069;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d4e2ec;
+  --color-on-secondary-container: #57646e;
+  --color-secondary-fixed: #d7e4ef;
+  --color-secondary-fixed-dim: #bbc8d3;
+  --color-on-secondary-fixed: #101d25;
+  --color-on-secondary-fixed-variant: #3c4851;
+
+  --color-tertiary: #3f1100;
+  --color-tertiary-container: #612002;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #e4855e;
+  --color-tertiary-fixed: #ffdbce;
+  --color-tertiary-fixed-dim: #ffb599;
+  --color-on-tertiary-fixed: #370e00;
+  --color-on-tertiary-fixed-variant: #783111;
+
+  --color-surface: #f1fcf8;
+  --color-surface-dim: #d1dcd9;
+  --color-surface-bright: #f1fcf8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #ebf6f2;
+  --color-surface-container: #e5f0ed;
+  --color-surface-container-high: #dfebe7;
+  --color-surface-container-highest: #dae5e1;
+  --color-surface-variant: #dae5e1;
+  --color-surface-tint: #42655e;
+
+  --color-on-surface: #131d1c;
+  --color-on-surface-variant: #414846;
+  --color-inverse-surface: #283230;
+  --color-inverse-on-surface: #e8f3ef;
+
+  --color-outline: #717976;
+  --color-outline-variant: #c1c8c5;
+
+  --color-background: #f1fcf8;
+  --color-on-background: #131d1c;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --font-manrope: var(--font-manrope, 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  --font-inter: var(--font-inter, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-margin: 3rem;
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-inter);
+    color: var(--color-on-surface);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-inter);
+    color: var(--color-on-surface);
+    background-color: var(--color-background);
+  }
+}
+
+/* =======================================================
+   EXACT STITCH TYPOGRAPHY UTILITIES
+   ======================================================= */
+
+.font-display-lg,
+.font-display-lg-mobile,
+.font-display-md,
+.font-display-md-mobile,
+.font-headline-lg,
+.font-headline-md,
+.font-headline-sm,
+.font-label-lg,
+.font-label-md,
+.font-label-sm {
+  font-family: var(--font-manrope, 'Manrope', sans-serif);
+}
+
+.font-body-lg,
+.font-body-md,
+.font-body-sm {
+  font-family: var(--font-inter, 'Inter', sans-serif);
+}
+
+/* Font Sizes with calibrated line-heights and letter-spacings */
+.text-display-lg {
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.text-display-lg-mobile {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-display-md {
+  font-size: 44px;
+  line-height: 52px;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+.text-display-md-mobile {
+  font-size: 30px;
+  line-height: 38px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.text-headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.text-headline-sm {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.text-body-md {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.text-body-sm {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.text-label-lg {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+
+.text-label-md {
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.text-label-sm {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+/* Responsive font scaling overrides for mobile */
+@media (max-width: 767px) {
+  .text-display-lg {
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+  }
+  .text-display-md {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* =======================================================
+   EXACT STITCH SPACING UTILITIES
+   ======================================================= */
+
+.px-margin {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.px-margin-mobile {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.p-margin {
+  padding: 3rem;
+}
+.p-margin-mobile {
+  padding: 1.25rem;
+}
+
+.gap-gutter {
+  gap: 1.5rem;
+}
+.gap-gutter-mobile {
+  gap: 1rem;
+}
+.gap-space-xs {
+  gap: 0.25rem;
+}
+.gap-space-sm {
+  gap: 0.5rem;
+}
+.gap-space-md {
+  gap: 1rem;
+}
+.gap-space-lg {
+  gap: 1.5rem;
+}
+.gap-space-xl {
+  gap: 2.5rem;
+}
+
+.p-space-xs {
+  padding: 0.25rem;
+}
+.p-space-sm {
+  padding: 0.5rem;
+}
+.p-space-md {
+  padding: 1rem;
+}
+.p-space-lg {
+  padding: 1.5rem;
+}
+.p-space-xl {
+  padding: 2.5rem;
+}
+
+.px-space-xs {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.px-space-sm {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.px-space-md {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.px-space-lg {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.px-space-xl {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.py-space-xs {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.py-space-sm {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.py-space-md {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.py-space-lg {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.py-space-xl {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.pt-space-xs {
+  padding-top: 0.25rem;
+}
+.pt-space-sm {
+  padding-top: 0.5rem;
+}
+.pt-space-md {
+  padding-top: 1rem;
+}
+.pt-space-lg {
+  padding-top: 1.5rem;
+}
+.pt-space-xl {
+  padding-top: 2.5rem;
+}
+
+.pb-space-xs {
+  padding-bottom: 0.25rem;
+}
+.pb-space-sm {
+  padding-bottom: 0.5rem;
+}
+.pb-space-md {
+  padding-bottom: 1rem;
+}
+.pb-space-lg {
+  padding-bottom: 1.5rem;
+}
+.pb-space-xl {
+  padding-bottom: 2.5rem;
+}
+
+.mb-space-xs {
+  margin-bottom: 0.25rem;
+}
+.mb-space-sm {
+  margin-bottom: 0.5rem;
+}
+.mb-space-md {
+  margin-bottom: 1rem;
+}
+.mb-space-lg {
+  margin-bottom: 1.5rem;
+}
+.mb-space-xl {
+  margin-bottom: 2.5rem;
+}
+
+.mt-space-xs {
+  margin-top: 0.25rem;
+}
+.mt-space-sm {
+  margin-top: 0.5rem;
+}
+.mt-space-md {
+  margin-top: 1rem;
+}
+.mt-space-lg {
+  margin-top: 1.5rem;
+}
+.mt-space-xl {
+  margin-top: 2.5rem;
+}
+
+.space-y-space-xs > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.25rem;
+}
+.space-y-space-sm > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.5rem;
+}
+.space-y-space-md > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+.space-y-space-lg > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1.5rem;
+}
+.space-y-space-xl > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 2.5rem;
+}
+
+/* Custom scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

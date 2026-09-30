@@ -1,0 +1,6 @@
+{
+  "name": "RoofRight Exteriors",
+  "description": "Premium residential exterior contractor specializing in roofing, roof repair, roof replacement, gutters, and siding with synchronized single-team craftsmanship.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
