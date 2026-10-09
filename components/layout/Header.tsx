@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS, SITE_CONFIG } from '@/constants/data';
 import {
@@ -110,17 +109,11 @@ export default function Header() {
       >
         <div className="h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-margin flex items-center justify-between gap-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-space-sm shrink-0 group">
-            <Image
-              src="https://lh3.googleusercontent.com/aida/AEtjO1UIM0qLrTmuVggVKJDO1nP2qcbWS7j1XVfCV53E7FDVZVCUatUAm7j8X8MvXWHITuOzAmMBmeybzRA_ykt4TX2IkuiaynLZHhrxLnxIgoRnISsjji-hvrrxhRf5F4z8cIE23WIjvGGBPtnt4YWrpwbKYzlm-ogD4C9FixPPW22laTB4KYyF3QDNDFLSLh1FEzoAF0UEgFukMtP3NwZerTZyzp0E9f2jcrWuS_0yrqkChI-uAF8zdnC1gA"
-              alt="RoofRight Exteriors Logo"
-              width={130}
-              height={32}
-              className="h-8 w-auto object-contain"
-              priority
-              referrerPolicy="no-referrer"
-            />
-            <div className="hidden sm:flex flex-col">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-primary-fixed shadow-sm group-hover:scale-105 transition-transform duration-200">
+              <ShieldCheck className="w-6 h-6 text-primary-fixed" />
+            </div>
+            <div className="flex flex-col">
               <span className="font-headline-sm text-headline-sm text-primary leading-tight font-bold tracking-tight group-hover:text-primary-container transition-colors">
                 RoofRight
               </span>

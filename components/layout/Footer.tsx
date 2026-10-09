@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { SITE_CONFIG } from '@/constants/data';
 import { ShieldCheck, Calculator, Hammer, Users, Phone, Mail, Clock, Shield } from 'lucide-react';
 
@@ -48,18 +47,18 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin py-space-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter">
         {/* Brand Column */}
         <div className="lg:col-span-4 space-y-space-md">
-          <Link href="/" className="flex items-center gap-space-sm">
-            <div className="relative h-8 w-32 flex items-center">
-              <Image
-                src="https://lh3.googleusercontent.com/aida/AEtjO1UIM0qLrTmuVggVKJDO1nP2qcbWS7j1XVfCV53E7FDVZVCUatUAm7j8X8MvXWHITuOzAmMBmeybzRA_ykt4TX2IkuiaynLZHhrxLnxIgoRnISsjji-hvrrxhRf5F4z8cIE23WIjvGGBPtnt4YWrpwbKYzlm-ogD4C9FixPPW22laTB4KYyF3QDNDFLSLh1FEzoAF0UEgFukMtP3NwZerTZyzp0E9f2jcrWuS_0yrqkChI-uAF8zdnC1gA"
-                alt="RoofRight Exteriors Logo"
-                width={140}
-                height={32}
-                className="h-8 w-auto object-contain brightness-0 invert"
-                referrerPolicy="no-referrer"
-              />
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm group-hover:scale-105 transition-transform duration-200">
+              <ShieldCheck className="w-6 h-6 text-primary" />
             </div>
-            <span className="font-headline-sm text-headline-sm text-on-primary font-bold">RoofRight Exteriors</span>
+            <div className="flex flex-col">
+              <span className="font-headline-sm text-headline-sm text-on-primary font-bold leading-tight">
+                RoofRight
+              </span>
+              <span className="font-label-sm text-[11px] text-primary-fixed-dim uppercase tracking-wider font-semibold">
+                Exteriors
+              </span>
+            </div>
           </Link>
 
           <p className="font-body-sm text-body-sm text-on-primary-container leading-relaxed">
