@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'motion/react';
 import {
   ShieldCheck,
   Calculator,
@@ -43,24 +46,46 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="w-full bg-surface-container-high py-space-md shadow-sm border-y border-surface-container">
+    <section className="w-full bg-surface-container-high py-space-md shadow-sm border-y border-surface-container overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-2 items-center text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.08 },
+            },
+          }}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-2 items-center text-center"
+        >
           {trustPoints.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="flex flex-col items-center justify-center px-2">
-                <Icon className="w-6 h-6 text-primary" />
-                <span className="font-label-md text-label-md text-primary font-bold mt-1">
+              <motion.div
+                key={item.title}
+                variants={{
+                  hidden: { opacity: 0, y: 12 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                }}
+                whileHover={{ y: -3, scale: 1.03 }}
+                className="flex flex-col items-center justify-center px-2 py-1 rounded-xl transition-colors hover:bg-surface/50 cursor-default"
+              >
+                <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center mb-1 shadow-xs border border-surface-container">
+                  <Icon className="w-5 h-5 text-primary" />
+                </div>
+                <span className="font-label-md text-label-md text-primary font-bold">
                   {item.title}
                 </span>
                 <span className="font-label-sm text-[11px] text-secondary">
                   {item.sub}
                 </span>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

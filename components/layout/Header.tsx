@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { NAV_LINKS, SITE_CONFIG } from '@/constants/data';
 import {
   Phone,
@@ -26,6 +27,13 @@ export default function Header() {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   const openAI = (mode: 'chat' | 'voice' = 'voice') => {
     if (typeof window !== 'undefined') {
@@ -107,6 +115,12 @@ export default function Header() {
             : 'bg-surface/90 backdrop-blur-xl shadow-[0_2px_12px_rgba(23,33,31,0.06)]'
         }`}
       >
+        {/* Animated Scroll Progress Bar */}
+        <motion.div
+          className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-primary via-tertiary-container to-on-tertiary-container origin-left z-50 pointer-events-none"
+          style={{ scaleX }}
+        />
+
         <div className="h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-margin flex items-center justify-between gap-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
